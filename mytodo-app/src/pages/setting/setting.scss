@@ -1,0 +1,28 @@
+page-setting {
+
+  .buttonStyle {
+    width: 200px;
+    font-size: 18px;
+    text-transform:capitalize;
+  }
+  .buttonRowStyle {
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+  }
+  /*.button-outline-md {
+    background-color: #0c63ee;
+    padding: 20px 0;
+    width: 200px;
+    text-transform:capitalize;
+  }*/
+  /*.ion-icon{
+    font-size: 4.9rem;
+    padding-right: 15px;
+    color: #427feb;
+  }*/
+  .button-md{
+    height: 5rem;
+  }
+
+}

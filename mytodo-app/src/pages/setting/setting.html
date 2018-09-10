@@ -1,0 +1,40 @@
+<!--
+  Generated template for the SettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="wholeApp">
+
+ <!-- Successfully Logged in : {{displayName}}<br>
+  Emial: {{email}}<br>-->
+  <!--style="text-align: left;font-size: 20px;text-align: justify;font-family: Times New Roman, Times, serif;"-->
+  <ion-row style="margin: 20px;margin-bottom: 0px;"><p style="margin:0px;font-size: large;">Back Up Data</p></ion-row>
+  <p style="color: #666;line-height: 2.5rem;margin:20px;">Back up your tasks to Google Drive. You can restore them when you reinstall ToDo app. Tasks you back up are not protected by ToDo app end-to-end encryption while in Google Drive.</p>
+
+  <ion-row class="buttonRowStyle">
+    <button ion-button round class="buttonStyle" (click)="uploadDataIntoDrive()" style="">
+      <ion-icon name="cloud-upload" style="padding-right: 10px;"></ion-icon>
+      Back Up Data</button>
+  </ion-row>
+  <ion-row style="margin: 20px;margin-bottom: 0px;"><p style="margin:0px;font-size: large;">Retrieve Data</p></ion-row>
+  <p style="color: #666;line-height: 2.5rem;margin:20px;">
+      Before retrieving your tasks from the Google Drive you have to upload your tasks to Google Drive. Once you uploaded the tasks after that you can retrieve tasks from the Google Drive. Tasks you retrieve are not protected by ToDo app end-to-end encryption while in Google Drive.
+    </p>
+
+  <ion-row class="buttonRowStyle">
+  <button ion-button round class="buttonStyle" (click)="getDataFromDrive()">
+    <ion-icon name="cloud-download" style="padding-right: 10px;"></ion-icon>
+    Retrieve Data </button>
+  </ion-row>
+  <!--<button ion-button full color="danger" icon-left (click)="googleLogout()">-->
+    <!--<ion-icon name="logo-googleplus"></ion-icon> Login with google-->
+  <!--</button>-->
+
+</ion-content>

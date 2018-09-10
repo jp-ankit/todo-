@@ -1,0 +1,35 @@
+page-add-item {
+
+  /*.picker-md .picker-col {
+    padding: 0!important;
+  }*/
+  /*.picker-col{
+    min-width: 12% !important;
+  }*/
+  /*$datetime-md-padding-top: 0;
+  $datetime-md-padding-end : 0;
+  $datetime-md-padding-bottom:0;
+  $datetime-md-padding-start:0;*/
+
+  .card-content-md {
+    padding: 13px 16px;
+}
+  .card-md{
+    //border-radius:15px;
+  }
+
+  .buttonStyle {
+    width: 300px;
+    font-size: 18px;
+    text-transform:capitalize;
+  }
+  .buttonRowStyle {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px ;
+  }
+
+  .button-md{
+    height: 5rem;
+  }
+}

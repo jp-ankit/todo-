@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      ToDo List
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="setting()">
+        <ion-icon ios="ios-settings" md="md-settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="wholeApp">
+
+  <ion-list no-lines>
+    <!--<ion-item-group *ngFor="let list of unCompletedTask;">-->
+    <ion-card *ngFor="let list of unCompletedTask;">
+
+      <!--<ion-item-sliding (ionSwipe)="deleteItem(item,list.id)" #item>-->
+      <ion-label style="margin-top: 0px;"></ion-label>
+      <ion-checkbox (ionChange)="taskCompleted($event,list.id)"></ion-checkbox>
+      <ion-card-header>
+        {{list.taskName}}
+        <p style="display: inline;float: right;margin-right: 12px;padding: 0 5px;border-radius:3px;background-color: #d9534f;">
+          <button style="background-color: #d9534f;color:white;font-size:10px;text-transform:capitalize;" (click)="deleteItem(list.id)">Delete</button>
+        </p>
+      </ion-card-header>
+      <ion-card-content>
+        <!--<ion-item-sliding (ionSwipe)="deleteItem(item,list.id)" #item>-->
+        <ion-item (click)="updateItem(list.id,list.taskName,list.description,list.notifyTime)">
+        <!--<ion-label>-->
+        <!--<b text-wrap>{{list.taskName}}</b><br><br>-->
+        <!--<ion-checkbox (ionChange)="taskCompleted($event,list.id)"></ion-checkbox>-->
+        <p text-wrap style="color: #999999;line-height: 1.8rem;">{{list.description}}</p>
+        <p style="margin-bottom: 0px;display:inline;font-size:1.2rem;color: #bbbbbb;">
+          <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>&nbsp;
+          {{list.notifyTime | dateOrder}}
+        </p>
+        <p style="float:right;margin-bottom: 0px;display:inline;font-size:1.2rem;color: #bbbbbb;">{{dateOrder(list.date)}}</p>
+        <!--</ion-label>-->
+        <!--<ion-checkbox (ionChange)="taskCompleted($event,list.id)"></ion-checkbox>-->
+        </ion-item>
+      <!--</ion-card-content>-->
+
+
+     <!-- <ion-item-options side="right">
+        <button ion-button expandable color="danger" (click)="deleteItem(item,list.id)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>-->
+        <!--</ion-item-sliding>-->
+      </ion-card-content>
+      </ion-card>
+    <!--</ion-item-group>-->
+  </ion-list>
+  <br>
+  <ion-label [hidden]=isCompletedTaskHidden style="font-size: larger;font-weight: bold;color: #999999;">Completed Task</ion-label>
+  <hr [hidden]=isCompletedTaskHidden style="color: #e4e4e4;">
+  <br>
+  <ion-list no-lines [hidden]=isCompletedTaskHidden>
+    <!--<ion-list-header style="font-size: larger;font-weight: bold;">Completed Task</ion-list-header>-->
+    <!--<ion-item-group *ngFor="let list of completedTask;">-->
+    <ion-card *ngFor="let list of completedTask;">
+    <ion-label style="margin-top: 0px;color: #999999;"></ion-label>
+    <ion-checkbox checked (ionChange)="taskCompleted($event,list.id)"></ion-checkbox>
+    <ion-card-header>
+      {{list.taskName}}
+      <p style="display: inline;float: right;margin-right: 12px;padding: 0 5px;border-radius:3px;background-color: #d9534f;">
+        <button style="background-color: #d9534f;color: white;font-size:10px;text-transform:capitalize;" (click)="deleteItem(list.id)">Delete</button>
+      </p>
+    </ion-card-header>
+
+      <ion-card-content>
+        <!--<ion-item-sliding (ionSwipe)="deleteItem(item,list.id)" #item>-->
+          <ion-item>
+            <!--<ion-label>-->
+            <p text-wrap style="color: #999999;line-height: 1.8rem;">{{list.description}}</p>
+            <p style="margin-bottom: 0px;display:inline;font-size:1.2rem;color: #bbbbbb;">
+              <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>&nbsp;
+              {{list.notifyTime | dateOrder}}
+            </p>
+            <p style="float:right;margin-bottom: 0px;display:inline;font-size:1.2rem;color: #bbbbbb;">{{dateOrder(list.date)}}</p>
+            <!--</ion-label>-->
+            <!--<ion-checkbox checked (ionChange)="taskCompleted($event,list.id)"></ion-checkbox>-->
+          </ion-item>
+          <!--<ion-item-options side="right">-->
+            <!--<button ion-button expandable color="danger" (click)="deleteItem(item,list.id)">-->
+              <!--<ion-icon name="trash"></ion-icon>-->
+              <!--Delete-->
+            <!--</button>-->
+          <!--</ion-item-options>-->
+        <!--</ion-item-sliding>-->
+        <!--</ion-item-group>-->
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab icon-only color="primary" (click)="addItem()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
